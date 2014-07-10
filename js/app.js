@@ -56,6 +56,36 @@ window.addEventListener('DOMContentLoaded', function() {
       geoFindMe();
   }, false);
 
+  function getRelativeTime(time) { 
+
+    var parsed_date = new Date (time * 1000);
+    var relative_to = (arguments.length > 1) ? arguments[1] : new Date(); // Defines relative to what ... default is now
+    var delta = parseInt((relative_to.getTime()-parsed_date)/1000);
+    delta=(delta<2)?2:delta;
+
+    var r = '';
+
+    // Parse delta
+    if (delta < 60) {
+      r = delta + ' seconds ago';
+    } else if(delta < 120) {
+      r = 'a minute ago';
+    } else if(delta < (45*60)) {
+      r = (parseInt(delta / 60, 10)).toString() + ' minutes ago';
+    } else if(delta < (2*60*60)) {
+      r = 'an hour ago';
+    } else if(delta < (24*60*60)) {
+      r = '' + (parseInt(delta / 3600, 10)).toString() + ' hours ago';
+    } else if(delta < (48*60*60)) {
+      r = 'a day ago';
+    } else {
+      r = (parseInt(delta / 86400, 10)).toString() + ' days ago';
+    }
+
+    return r;
+
+  };
+
 
   // Get photos by location on Instagram
   function search() {
@@ -134,7 +164,7 @@ window.addEventListener('DOMContentLoaded', function() {
         // https://developer.mozilla.org/Web/API/Element.innerHTML#Security_considerations
 
         var liPhoto = document.createElement('li');
-        var header = document.createElement('heade');
+        var header = document.createElement('header');
         var profileAvatar = document.createElement('img');
         var profileName = document.createElement('h2');
         var timeAgo = document.createElement('span');
@@ -150,10 +180,14 @@ window.addEventListener('DOMContentLoaded', function() {
         profileAvatar.alt = item.user.username;
         profileName.textContent = item.user.full_name;
         timeAgo.className = 'time-ago';
-        timeAgo.textContent = item.created_time;
+        timeAgo.textContent = getRelativeTime(item.created_time);
         photo.src = item.images.low_resolution.url;
-        photo.alt = item.caption.text;
-        photoCaption.textContent = item.caption.text;
+        if ( item.caption ) {
+          photo.alt = item.caption.text;
+          photoCaption.textContent = item.caption.text;  
+        } else {
+          photo.alt = 'Photo by ' + item.user.username;
+        }        
         photoMenu.type = 'toolbar';
         buttonSahre.className = 'button-share';
         buttonSahre.value = 'Share';
@@ -162,7 +196,7 @@ window.addEventListener('DOMContentLoaded', function() {
         header.appendChild(profileAvatar);
         header.appendChild(profileName);
         header.appendChild(timeAgo);
-
+        
         wrapPhoto.appendChild(photo);
         wrapPhoto.appendChild(photoCaption);
 

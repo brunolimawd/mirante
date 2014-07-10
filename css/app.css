@@ -11,7 +11,7 @@ body{
 
 /* app style */
 
-header{
+.header-app{
   width: 100%;
 	height: 5rem;
 	display: block;
@@ -21,12 +21,12 @@ header{
 	background: #517fa4;
 }
 
-header menu{
+.header-app menu{
   height: 100%;
   float: right;
 }
 
-header menu button{
+.header-app menu button{
   width: 5rem;
   height: 5rem;
   display: block;
@@ -37,7 +37,7 @@ header menu button{
   border: none;
 }
 
-header menu button .icon{
+.header-app menu button .icon{
   width: 3rem;
   height: 3rem;
   display: inline-block;
@@ -48,11 +48,11 @@ header menu button .icon{
   font-size: 0;
 }
 
-header menu button .icon-reload{
+.header-app menu button .icon-reload{
   background-position: 0 0;
 }
 
-header h1{
+.header-app h1{
   font-size: 2.5rem;
   line-height: 5rem;
   text-align: left;
@@ -78,17 +78,55 @@ header h1{
   overflow-y: auto;
 }
 
+.content ul{
+  width: 100%;
+  padding: 1.5rem;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 .photo{
   width: 100%;
   height: auto;
-  margin: 1.5rem 1.5rem 0; 
+  padding: 1.5rem 0;
   position: relative;
   overflow: hidden;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   border-bottom: 1px solid #dbdbdb;
+  list-style: none;
+}
+
+.photo:first-child{
+  padding: 0  0 1.5rem;
 }
 
 .photo:last-child{
   border: none;
+}
+
+.photo header{
+  margin: 0 0 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.photo header img{
+  width: 6rem;
+  height: 6rem;
+  display: block;
+  margin: 0 1rem 0 0;
+  float: left;
+}
+
+.photo header h2{
+  padding: 0.5rem 0;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 1.4rem;
+}
+
+.photo header .time-ago{
+  display: block;
+  font-size: 1.2rem;
+  color: #858585; 
+  font-weight: lighter;
 }
