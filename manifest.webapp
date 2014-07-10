@@ -10,11 +10,18 @@
     "128": "/img/icons/icon128x128.png"
   },
   "developer": {
-    "name": "Your name",
-    "url": "http://example.com"
+    "name": "Bruno Lima",
+    "url": "http://brunolima.io"
   },
   "type": "privileged",
-  "permissions": {},
+  "permissions": {
+    "geolocation": {
+      "description": "Get geolocation"
+    },
+    "systemXHR": {
+      "description": "Required to load remote content"
+    }
+  },
   "installs_allowed_from": [
     "*"
   ],

@@ -1,18 +1,79 @@
-html, body {
-  margin: 0;
-  padding: 0.5rem;
+*{
+	margin: 0;
+	padding: 0;
+}
+html{
+	font-size: 10px;
+}
+body{
+	background: #fff;
 }
 
-body {
-  font-size: 1rem;
-  background: #fff;
+/* app style */
+
+header{
+  width: 100%;
+	height: 5rem;
+	display: block;
+	position: absolute;
+	top: 0;
+  left: 0;
+	background: #517fa4;
 }
 
-h1 {
-  margin: 0 0 1rem 0;
+header menu{
+  height: 100%;
+  float: right;
 }
 
-p {
-  font-size: inherit;
+header menu button{
+  width: 5rem;
+  height: 5rem;
+  display: block;
+  padding: 1rem;
+  background:none;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: none;
 }
 
+header menu button .icon{
+  width: 3rem;
+  height: 3rem;
+  display: inline-block;
+  position: relative;
+  display: block;
+  background: url(../img/sprite-icons.png) no-repeat;
+  background-size: 3rem auto;
+  font-size: 0;
+}
+
+header menu button .icon-reload{
+  background-position: 0 0;
+}
+
+header h1{
+  font-size: 2.5rem;
+  line-height: 5rem;
+  text-align: left;
+  color: #FFF;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px 1rem 0px 3rem;
+  height: 100%;
+  font-weight: lighter;
+}
+
+.content{
+  position: absolute;
+  top: 5rem;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  padding-bottom: 4rem;
+  z-index: 5;
+  overflow-y: auto;
+}
