@@ -116,8 +116,7 @@ window.addEventListener('DOMContentLoaded', function() {
     results.textContent = '';
 
     var photos = response.data;
-    var ul = document.createElement('ul');
-
+    
     if(photos.length === 0) {
 
       var p = document.createElement('p');
@@ -126,18 +125,55 @@ window.addEventListener('DOMContentLoaded', function() {
 
     } else {
 
+      var listPhotos = document.createElement('ul');
+      results.appendChild(listPhotos);
+
       photos.forEach(function(item) {
 
         // We're using textContent because inserting content from external sources into your page using innerHTML can be dangerous.
         // https://developer.mozilla.org/Web/API/Element.innerHTML#Security_considerations
-        var img = document.createElement('img');
-        img.src = item.images.low_resolution.url;
-        img.alt = item.caption.text;
 
-        var li = document.createElement('li');
-        li.appendChild(img);
-        ul.appendChild(li);
-        results.appendChild(ul);
+        var liPhoto = document.createElement('li');
+        var header = document.createElement('heade');
+        var profileAvatar = document.createElement('img');
+        var profileName = document.createElement('h2');
+        var timeAgo = document.createElement('span');
+        var wrapPhoto = document.createElement('figure');
+        var photo = document.createElement('img');
+        var photoCaption = document.createElement('figcaption');
+        var photoMenu = document.createElement('menu');
+        var liShare = document.createElement('li');
+        var buttonSahre = document.createElement('button');
+
+        liPhoto.className = 'photo';
+        profileAvatar.src = item.user.profile_picture;
+        profileAvatar.alt = item.user.username;
+        profileName.textContent = item.user.full_name;
+        timeAgo.className = 'time-ago';
+        timeAgo.textContent = item.created_time;
+        photo.src = item.images.low_resolution.url;
+        photo.alt = item.caption.text;
+        photoCaption.textContent = item.caption.text;
+        photoMenu.type = 'toolbar';
+        buttonSahre.className = 'button-share';
+        buttonSahre.value = 'Share';
+        buttonSahre.textContent = 'Share';
+
+        header.appendChild(profileAvatar);
+        header.appendChild(profileName);
+        header.appendChild(timeAgo);
+
+        wrapPhoto.appendChild(photo);
+        wrapPhoto.appendChild(photoCaption);
+
+        liShare.appendChild(buttonSahre);
+        photoMenu.appendChild(liShare);
+        
+        liPhoto.appendChild(header);
+        liPhoto.appendChild(wrapPhoto);
+        liPhoto.appendChild(photoMenu);
+
+        listPhotos.appendChild(liPhoto);
 
       });
 

@@ -22,6 +22,9 @@
       "description": "Required to load remote content"
     }
   },
+  "orientation": [
+    "portrait"
+  ],
   "installs_allowed_from": [
     "*"
   ],
