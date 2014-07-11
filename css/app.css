@@ -122,6 +122,7 @@ body{
   display: table-cell;
   vertical-align: middle;
   font-size: 1.4rem;
+  color: #2c393b;
 }
 
 .photo header .time-ago{
@@ -129,4 +130,38 @@ body{
   font-size: 1.2rem;
   color: #858585; 
   font-weight: lighter;
+}
+
+.photo figure img{
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 0 1.5rem;
+}
+
+.photo figure figcaption{
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+  color: #858585;
+}
+
+.photo menu{
+  width: 100%;
+  height: 3rem;
+}
+
+.photo menu li{
+  margin: 0 0 0 1rem;
+  list-style: none;
+  float: right;
+}
+
+.photo menu .button-share{
+  width: 3rem;
+  height: 3rem;
+  display: block;
+  background: transparent url(../img/sprite-icons.png) no-repeat 0 -3rem;
+  background-size: 3rem auto;
+  border: none;
+  font-size: 0;
 }

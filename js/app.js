@@ -87,6 +87,29 @@ window.addEventListener('DOMContentLoaded', function() {
   };
 
 
+  function sharePhoto(urlInstagram){
+    var activityShare = new MozActivity({
+      // Ask for the "share" activity
+      name: "share",
+
+      // Provide the data required by the filters of the activity
+      data: {
+        type: "url",
+        url: urlInstagram
+      }
+    });
+
+    activityShare.onsuccess = function() {
+      console.log("ok");
+    };
+
+    activityShare.onerror = function() {
+      console.log(this.error);
+    };
+  };
+  
+
+
   // Get photos by location on Instagram
   function search() {
 
@@ -190,7 +213,7 @@ window.addEventListener('DOMContentLoaded', function() {
         }        
         photoMenu.type = 'toolbar';
         buttonSahre.className = 'button-share';
-        buttonSahre.value = 'Share';
+        buttonSahre.value = item.link;
         buttonSahre.textContent = 'Share';
 
         header.appendChild(profileAvatar);
@@ -208,6 +231,10 @@ window.addEventListener('DOMContentLoaded', function() {
         liPhoto.appendChild(photoMenu);
 
         listPhotos.appendChild(liPhoto);
+
+        buttonSahre.addEventListener('click', function(e) {
+            sharePhoto(this.value);
+        }, false);
 
       });
 
