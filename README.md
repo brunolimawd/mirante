@@ -26,7 +26,6 @@ Contributions are always welcome! If you want to collaborate, whether that is wi
 
 To make your changes as easy to merge back onto the project as possible, you should only work on one feature per branch. That makes code review simpler and faster!
 
-
 This App based the [mortar](https://github.com/mozilla/mortar/) template collection for building [Open Web Apps](https://developer.mozilla.org/Apps).
 
 ##License
