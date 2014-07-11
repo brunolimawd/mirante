@@ -206,11 +206,9 @@ window.addEventListener('DOMContentLoaded', function() {
         timeAgo.textContent = getRelativeTime(item.created_time);
         photo.src = item.images.low_resolution.url;
         if ( item.caption ) {
-          photo.alt = item.caption.text;
           photoCaption.textContent = item.caption.text;  
-        } else {
-          photo.alt = 'Photo by ' + item.user.username;
-        }        
+        }
+        photo.alt = 'Photo by ' + item.user.username;        
         photoMenu.type = 'toolbar';
         buttonSahre.className = 'button-share';
         buttonSahre.value = item.link;
@@ -231,6 +229,8 @@ window.addEventListener('DOMContentLoaded', function() {
         liPhoto.appendChild(photoMenu);
 
         listPhotos.appendChild(liPhoto);
+
+        liPhoto.innerHTML=emoji.a(liPhoto.innerHTML);
 
         buttonSahre.addEventListener('click', function(e) {
             sharePhoto(this.value);
