@@ -28,3 +28,6 @@ To make your changes as easy to merge back onto the project as possible, you sho
 
 
 This App based the [mortar](https://github.com/mozilla/mortar/) template collection for building [Open Web Apps](https://developer.mozilla.org/Apps).
+
+##License
+This App under [Apache license](http://www.apache.org/licenses/LICENSE-2.0).
