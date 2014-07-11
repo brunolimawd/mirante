@@ -1,7 +1,7 @@
 {
   "version": "0.1.0",
   "name": "Mirante",
-  "description": "A template with the bare minimum structure",
+  "description": "View photos from Instagram near you",
   "launch_path": "/index.html",
   "icons": {
     "16": "/img/icons/icon16x16.png",
@@ -30,9 +30,28 @@
   ],
   "locales": {
     "es": {
-      "name": "Aplicación vacía privilegiada",
-      "description": "Una plantilla con la mínima estructura",
-      "permissions": {}
+      "name": "Mirante",
+      "description": "Ver las fotos de Instagram cerca de usted",
+      "permissions": {
+        "geolocation": {
+          "description": "Obtenga geolocalización"
+        },
+        "systemXHR": {
+          "description": "Requerido para cargar contenido remoto"
+        }
+      }
+    },
+    "pt-BR": {
+      "name": "Mirante",
+      "description": "Vejá as fotos do Instagram próximas a você",
+      "permissions": {
+        "geolocation": {
+          "description": "Obter localização"
+        },
+        "systemXHR": {
+          "description": "Necessário para carregar o conteúdo remoto"
+        }
+      }
     }
   },
   "default_locale": "en"
